@@ -39,7 +39,18 @@ visualized with Grafana.
 ### Key skills:
 Python, PyTest, Docker, Allure, Selenium, Grafana, Jenkins.
 
+### Design Pattern used:
+- DomainDrivenDesign: Express your tests in the language of the end-user of the app. 
+- PageObjects: A simple abstraction of the UI of your web app. 
+- Lo`adableComponent: Modeling PageObjects as components. 
+- BotStyleTests: Using a command-based approach to automating tests, rather than the object-based approach that PageObjects encourage
 
+
+Source: https://www.selenium.dev/documentation/test_practices/design_strategies/
+
+
+
+`
 
 
 
