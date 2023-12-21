@@ -38,7 +38,7 @@ visualized with Grafana.
 
 ### Key skills:
 Python, PyTest, Docker, Allure, Selenium, Grafana, Jenkins.
-
+    
 ### Design Pattern used:
 - DomainDrivenDesign: Express your tests in the language of the end-user of the app. 
 - PageObjects: A simple abstraction of the UI of your web app. 
