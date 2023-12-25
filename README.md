@@ -25,9 +25,7 @@ This project is about practicing Selenium and other technologies
 like Docker, Allure, PyTest.
 
 The following websites are chosen for practice:
-- https://demoqa.com/
-- https://the-internet.herokuapp.com/
-- https://www.way2automation.com/demo.html
+- https://ecommerce-playground.lambdatest.io/
 
 Main pipeline assumes to write functional 2t2 tests for web app
 using Python and Selenium WebDriver. Run tests in docker 
@@ -37,7 +35,11 @@ Test run reports should be collected in database and then
 visualized with Grafana.
 
 ### Key skills:
-Python, PyTest, Docker, Allure, Selenium, Grafana, Jenkins.
+Python, PyTest, Docker, Docker Compose, Allure, Selenium, Grafana, Jenkins.
+
+__Note:__ Do not run Selenium Grid to run tests on different OS, browsers etc.
+At least us Selenoid.
+Source: https://www.youtube.com/watch?v=vmJv7nFm4yA
     
 ### Design Pattern used:
 - DomainDrivenDesign: Express your tests in the language of the end-user of the app. 
@@ -47,8 +49,30 @@ Python, PyTest, Docker, Allure, Selenium, Grafana, Jenkins.
 
 
 Source: https://www.selenium.dev/documentation/test_practices/design_strategies/
+    
+    
+    Test Scenario 2:
+1. Open the https://www.lambdatest.com/selenium-playground page and
+click “Drag & Drop Sliders” under “Progress Bars & Sliders”.
+2. Select the slider “Default value 15” and drag the bar to make it 95 by
+validating whether the range value shows 95.
 
 
+Test Scenario 3:
+1. Open the https://www.lambdatest.com/selenium-playground page and
+click “Input Form Submit” under “Input Forms”.
+2. Click “Submit” without filling in any information in the form.
+3. Assert “Please fill in the fields” error message.
+4. Fill in Name, Email, and other fields.
+5. From the Country drop-down, select “United States” using the text
+property.
+6. Fill all fields and click “Submit”.
+7. Once submitted, validate the success message “Thanks for contacting
+us, we will get back to you shortly.” on the screen.
+
+You are required to run the above test in parallel on at least 2 different
+browser/OS combinations (for example,
+Windows 10 Chrome latest version and macOS Catalina Safari)
 
 `
 
