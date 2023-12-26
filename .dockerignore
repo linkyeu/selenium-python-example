@@ -1,0 +1,6 @@
+docker
+env
+.gitignore
+README.md
+.pytest_cache
+__pycache__

@@ -49,6 +49,16 @@ Source: https://www.youtube.com/watch?v=vmJv7nFm4yA
 
 
 Source: https://www.selenium.dev/documentation/test_practices/design_strategies/
+
+## Settings
+### Setup Jenkins
+- Write dockerfile with default Jenkins and add there docker
+- Build
+- Run container with mounted docker socket with host socket
+docker run -u root -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkins-docker
+should be root user to have an access to docker socket!
+- Run Jenkins and setup (Docker Pipeline plugin)
+
     
     
     Test Scenario 2:
@@ -74,7 +84,7 @@ You are required to run the above test in parallel on at least 2 different
 browser/OS combinations (for example,
 Windows 10 Chrome latest version and macOS Catalina Safari)
 
-`
+
 
 
 

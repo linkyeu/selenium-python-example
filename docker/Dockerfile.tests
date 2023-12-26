@@ -20,14 +20,10 @@ RUN wget https://repo1.maven.org/maven2/io/qameta/allure/allure-commandline/2.13
 
 ENV PATH="/opt/allure-2.13.8/bin:${PATH}"
 
-COPY requirements.txt ./
-COPY reports ./reports
-COPY tests/ ./tests/
-COPY results/ ./results/
+COPY . .
 
 RUN pip install -r requirements.txt
 
-# Команда для запуска тестов
 CMD ["bash"]
 
 

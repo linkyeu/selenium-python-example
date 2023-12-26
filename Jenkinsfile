@@ -4,7 +4,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    docker.image('selenium-test').inside {
+                    docker.image('selenium-tests').inside {
                         sh 'pytest -n 2'
                     }
                 }
