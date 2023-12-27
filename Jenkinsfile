@@ -13,8 +13,8 @@ pipeline {
         sh '''echo "Building docker container..."
 docker build -t tests -f docker/Dockerfile.tests .'''
         sh '''echo "Running tests in docker"
-docker run tests pytest -n 3'''
-        archiveArtifacts(artifacts: 'test_output', fingerprint: true)
+docker run tests pytest -n 3 --alluredir=allure-reports'''
+        archiveArtifacts(artifacts: 'test_output', fingerprint: true, allowEmptyArchive: true)
       }
     }
 
