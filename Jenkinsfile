@@ -14,13 +14,8 @@ pipeline {
 docker build -t tests -f docker/Dockerfile.tests .'''
         sh '''echo "Running tests in docker"
 docker run tests pytest --alluredir=allure-reports -n 3 '''
+        sh 'echo $(ls allure-reports)'
       }
-    }
-
-  }
-  post {
-    always {
-      archiveArtifacts(artifacts: 'allure-reports/*', allowEmptyArchive: true)
     }
 
   }
