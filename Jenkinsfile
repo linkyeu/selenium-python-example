@@ -15,10 +15,17 @@ pipeline {
           }
         }
 
-        stage('') {
+        stage('Build docker container') {
           steps {
             sh '''echo "Building docker container..."
 docker build -t tests -f docker/Dockerfile.tests .'''
+          }
+        }
+
+        stage('Run tests in Docker') {
+          steps {
+            sh '''echo "Running tests in docker"
+docker run tests pytest -n 3'''
           }
         }
 
