@@ -14,7 +14,7 @@ pipeline {
 docker build -t tests -f docker/Dockerfile.tests .'''
         sh '''echo "Running tests in docker"
 docker run -v ${pwd}/allure-report:/usr/src/app/allure-report tests pytest --alluredir=allure-reports -n 3 '''
-        sh 'echo $(ls allure-reports)'
+        sh 'echo $(ls /usr/src/app/allure-reports)'
       }
     }
 
