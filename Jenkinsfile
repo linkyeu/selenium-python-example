@@ -19,4 +19,10 @@ docker run tests pytest --alluredir=allure-reports -n 3 '''
     }
 
   }
+  post {
+    always {
+      sh 'echo $(ls allure-reports)'
+    }
+
+  }
 }
