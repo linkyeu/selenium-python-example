@@ -14,7 +14,7 @@ pipeline {
         sh '''echo "Building docker container..."
 docker build -t tests -f docker/Dockerfile.tests .'''
         sh '''mkdir -p ${PWD}/allure-reports
-docker run --rm -v ${PWD}/allure-reports:/usr/src/app tests bash -c "echo Hello > /usr/src/app/containerdir/testfile.txt"
+docker run --rm -v ${PWD}/allure-reports:/usr/src/app tests bash -c "mkdir -p /usr/src/app/containerdir && echo Hello > /usr/src/app/containerdir/testfile.txt"
 cat ${PWD}/allure-reports/testfile.txt'''
       }
     }
