@@ -11,11 +11,15 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Run functional tests'
-        sh '''echo "Building docker container..."
-docker build -t tests -f docker/Dockerfile.tests .'''
-        sh '''mkdir -p ${PWD}/allure-reports
+        sh '''
+echo "Building docker container..."
+docker build -t tests -f docker/Dockerfile.tests .
+'''
+        sh '''
+mkdir -p ${PWD}/allure-reports
 docker run --rm -v ${PWD}/allure-reports:/usr/src/app tests bash -c "mkdir -p /usr/src/app/containerdir && echo Hello > /usr/src/app/containerdir/testfile.txt"
-cat ${PWD}/allure-reports/testfile.txt'''
+cat ${PWD}/allure-reports/containerdir/testfile.txt
+'''
       }
     }
 
