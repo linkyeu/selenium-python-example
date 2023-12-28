@@ -16,7 +16,19 @@ docker build -t tests -f docker/Dockerfile.tests .'''
         sh 'mkdir ${pwd}/allure-reports'
         sh '''echo "Running tests in docker"
 docker run -v ${pwd}/allure-reports:/usr/src/app/allure-reports tests pytest --alluredir=/usr/src/app/allure-reports -n 3 '''
-        sh 'echo $(ls)'
+      }
+    }
+
+    stage('Generate Allure Report') {
+      steps {
+        script {
+          allure([
+            includeProperties: false,
+            jdk: '',
+            results: [[path: 'allure-results']]
+          ])
+        }
+
       }
     }
 
