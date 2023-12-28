@@ -16,8 +16,8 @@ echo "Building docker container..."
 docker build -t tests -f docker/Dockerfile.tests .
 '''
         sh '''
-mkdir -p ${WORKSPACE}/allure-reports
-docker run --rm -v ${WORKSPACE}:/app tests
+mkdir -p C:\\Users\\DFilippov\\Downloads\\PERSONAL\\portfolio\\selenium-ci-cd\\allure-reports
+docker run --rm -v C:\\Users\\DFilippov\\Downloads\\PERSONAL\\portfolio\\selenium-ci-cd:/app tests
 '''
       }
     }
