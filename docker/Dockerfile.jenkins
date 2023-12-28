@@ -1,7 +1,4 @@
-# Используйте официальный образ Jenkins как основу
 FROM jenkins/jenkins:lts
-
-# Переключаемся на пользователя root для установки Docker
 USER root
 
 # Установка зависимостей и добавление репозитория Docker
@@ -14,9 +11,5 @@ RUN apt-get update && \
     curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 
-# Установка Docker Engine
-RUN apt-get update && \
-    apt-get -y install docker-ce docker-ce-cli containerd.io
-
-# Возвращаем пользователя Jenkins
+RUN apt-get update && apt-get -y install docker-ce docker-ce-cli containerd.io
 USER jenkins

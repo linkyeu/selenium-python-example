@@ -17,4 +17,4 @@ RUN wget https://repo1.maven.org/maven2/io/qameta/allure/allure-commandline/2.13
 ENV PATH="/opt/allure-2.13.8/bin:${PATH}"
 COPY . .
 RUN pip install -r requirements.txt
-CMD ["pytest", "--html=./report.html", "--alluredir=./allure-reports"]
+CMD ["bash"]
