@@ -14,7 +14,7 @@ pipeline {
         sh '''echo "Building docker container..."
 docker build -t tests -f docker/Dockerfile.tests .'''
         sh '''mkdir -p ${PWD}/allure-reports
-docker run -v ${PWD}/allure-reports:/usr/src/app/allure-reports tests pytest --alluredir=/usr/src/app/allure-reports'''
+docker run -v ${PWD}/allure-reports:/usr/src/app/allure-reports tests pytest --html=/usr/src/app/allure-reports/report.html'''
       }
     }
 
