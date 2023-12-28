@@ -13,8 +13,9 @@ pipeline {
         echo 'Run functional tests'
         sh '''echo "Building docker container..."
 docker build -t tests -f docker/Dockerfile.tests .'''
+        sh 'mkdir allure-reports'
         sh '''echo "Running tests in docker"
-docker run -v ${PWD}/allure-reports:/usr/src/app/allure-reports tests pytest --alluredir=/usr/src/app/allure-reports -k simple'''
+docker run -v ${PWD}/allure-reports:/usr/src/app/allure-reports tests pytest --alluredir=/usr/src/app/allure-reports'''
       }
     }
 
