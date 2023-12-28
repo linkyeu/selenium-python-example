@@ -16,8 +16,8 @@ echo "Building docker container..."
 docker build -t tests -f docker/Dockerfile.tests .
 '''
         sh '''
-mkdir -p ${PWD}/allure-reports
-docker run --rm -v ${PWD}:/app tests
+mkdir -p ${WORKSPACE}/allure-reports
+docker run --rm -v ${WORKSPACE}:/app tests
 '''
       }
     }
