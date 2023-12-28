@@ -16,14 +16,15 @@ docker build -t tests -f docker/Dockerfile.tests .'''
         sh '''mkdir ${PWD}/allure-reports
 '''
         sh '''echo "Running tests in docker"
-docker run -v ${pwd}/allure-reports:/usr/src/app/allure-reports tests pytest --alluredir=/usr/src/app/allure-reports .\\tests\\test_simple_form_demo.py -n 3 '''
+docker run -v ${PWD}/allure-reports:/app/allure-reports tests pytest --alluredir=/app/allure-reports .\\tests\\test_simple_form_demo.py '''
       }
     }
 
   }
   post {
     always {
-      sh 'echo $(ls /usr/src/app/allure-reports)'
+      sh 'echo $(ls)'
+      sh 'echo $(ls /app/allure-reports)'
       archiveArtifacts(artifacts: 'allure-reports/*.*', fingerprint: true)
     }
 
