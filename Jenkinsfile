@@ -14,7 +14,7 @@ pipeline {
         sh '''echo "Building docker container..."
 docker build -t tests -f docker/Dockerfile.tests .'''
         sh '''mkdir -p ${PWD}/allure-reports
-docker run -v ${PWD}/allure-reports:/usr/src/app/allure-reports tests pytest --html=/usr/src/app/allure-reports/report.html'''
+docker run -v ${PWD}:/usr/src/app tests pytest --html=report.html'''
       }
     }
 
@@ -23,7 +23,7 @@ docker run -v ${PWD}/allure-reports:/usr/src/app/allure-reports tests pytest --h
     always {
       sh 'echo $(ls)'
       sh 'echo $(ls allure-reports)'
-      archiveArtifacts(artifacts: 'allure-reports/*.*', fingerprint: true)
+      archiveArtifacts(artifacts: 'report.html', fingerprint: true)
     }
 
   }
