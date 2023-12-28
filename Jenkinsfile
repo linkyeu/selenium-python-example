@@ -16,7 +16,7 @@ echo "Building docker container..."
 docker build -t tests -f docker/Dockerfile.tests .
 '''
         sh '''docker run --name my-test-container -d tests
-docker cp my-test-container:/report.html ${WORKSPACE}/reports
+docker exec --name my-test-container ls
 docker stop my-test-container
 docker rm my-test-container'''
       }
