@@ -13,22 +13,10 @@ pipeline {
         echo 'Run functional tests'
         sh '''echo "Building docker container..."
 docker build -t tests -f docker/Dockerfile.tests .'''
-        sh 'mkdir ${pwd}/allure-reports'
+        sh '''mkdir ${PWD}/allure-reports
+'''
         sh '''echo "Running tests in docker"
-docker run -v ${pwd}/allure-reports:/usr/src/app/allure-reports tests pytest --alluredir=/usr/src/app/allure-reports -n 3 '''
-      }
-    }
-
-    stage('Generate Allure Report') {
-      steps {
-        script {
-          allure([
-            includeProperties: false,
-            jdk: '',
-            results: [[path: 'allure-results']]
-          ])
-        }
-
+docker run -v ${pwd}/allure-reports:/usr/src/app/allure-reports tests pytest --alluredir=/usr/src/app/allure-reports .\\tests\\test_simple_form_demo.py -n 3 '''
       }
     }
 
@@ -36,6 +24,7 @@ docker run -v ${pwd}/allure-reports:/usr/src/app/allure-reports tests pytest --a
   post {
     always {
       sh 'echo $(ls /usr/src/app/allure-reports)'
+      archiveArtifacts(artifacts: 'allure-reports/*.*', fingerprint: true)
     }
 
   }
