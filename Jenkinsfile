@@ -18,7 +18,7 @@ docker build -t tests -f docker/Dockerfile.tests .
         sh '''docker stop my-container
 docker rm my-container
 docker run --name my-container -d tests tail -f /dev/null
-docker exec my-container bash "pytest --html=report.html; ls"
+docker exec my-container bash -c "pytest --html=report.html; ls"
 docker cp my-container:/usr/src/app/report.html .
 docker stop my-container
 docker rm my-container'''
