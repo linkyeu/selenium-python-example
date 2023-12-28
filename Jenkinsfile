@@ -24,7 +24,7 @@ docker run -v ${PWD}/allure-reports:/app/allure-reports tests pytest --alluredir
   post {
     always {
       sh 'echo $(ls)'
-      sh 'echo $(ls /app/allure-reports)'
+      sh 'echo $(ls allure-reports)'
       archiveArtifacts(artifacts: 'allure-reports/*.*', fingerprint: true)
     }
 
