@@ -15,11 +15,10 @@ pipeline {
 echo "Building docker container..."
 docker build -t tests -f docker/Dockerfile.tests .
 '''
-        sh '''
-mkdir -p ${PWD}/allure-reports
-docker run --rm -v ${PWD}:/app tests bash -c "mkdir -p app/containerdir/testfile.txt; echo \'Hello\' > app/containerdir/testfile.txt"
-cat ${PWD}/containerdir/testfile.txt
-'''
+        sh '''docker run --name my-container -d tests
+docker exec --name my-container ls
+docker stop my-container
+docker rm my-container'''
       }
     }
 
@@ -27,7 +26,7 @@ cat ${PWD}/containerdir/testfile.txt
   post {
     always {
       sh 'echo $(ls)'
-      archiveArtifacts(artifacts: 'tests/*.py', allowEmptyArchive: true, fingerprint: true)
+      archiveArtifacts(artifacts: 'report.html', allowEmptyArchive: true, fingerprint: true)
     }
 
   }
