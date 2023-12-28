@@ -13,10 +13,8 @@ pipeline {
         echo 'Run functional tests'
         sh '''echo "Building docker container..."
 docker build -t tests -f docker/Dockerfile.tests .'''
-        sh '''mkdir ${PWD}/allure-reports
-'''
         sh '''echo "Running tests in docker"
-docker run -v ${PWD}/allure-reports:/app/allure-reports tests pytest --alluredir=/app/allure-reports .\\tests\\test_simple_form_demo.py '''
+docker run -v ${PWD}/allure-reports:/usr/src/app/allure-reports tests pytest --alluredir=/usr/src/app/allure-reports -k simple'''
       }
     }
 
@@ -24,8 +22,8 @@ docker run -v ${PWD}/allure-reports:/app/allure-reports tests pytest --alluredir
   post {
     always {
       sh 'echo $(ls)'
-      sh 'echo $(ls allure-reports)'
-      archiveArtifacts(artifacts: 'allure-reports/*.*', fingerprint: true)
+      sh 'echo $(ls /usr/src/app/allure-reports)'
+      archiveArtifacts(artifacts: '/usr/src/app/allure-reports/*.*', fingerprint: true)
     }
 
   }
