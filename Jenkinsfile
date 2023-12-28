@@ -15,10 +15,10 @@ pipeline {
 echo "Building docker container..."
 docker build -t tests -f docker/Dockerfile.tests .
 '''
-        sh '''
-mkdir -p C:\\Users\\DFilippov\\Downloads\\PERSONAL\\portfolio\\selenium-ci-cd\\allure-reports
-docker run --rm -v C:\\Users\\DFilippov\\Downloads\\PERSONAL\\portfolio\\selenium-ci-cd:/app tests
-'''
+        sh '''docker run --name my-test-container -d tests
+docker cp my-test-container:/report.html ${WORKSPACE}/reports
+docker stop my-test-container
+docker rm my-test-container'''
       }
     }
 
