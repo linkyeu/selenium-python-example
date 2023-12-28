@@ -17,8 +17,8 @@ docker build -t tests -f docker/Dockerfile.tests .
 '''
         sh '''
 mkdir -p ${PWD}/allure-reports
-docker run --rm -v ${PWD}/allure-reports:/usr/src/app tests bash -c "mkdir -p /usr/src/app/containerdir && echo Hello > /usr/src/app/containerdir/testfile.txt"
-cat ${PWD}/allure-reports/containerdir/testfile.txt
+docker run --rm -v ${PWD}:/app tests bash -c "mkdir -p app/containerdir/testfile.txt; echo \'Hello\' > app/containerdir/testfile.txt"
+cat ${PWD}/containerdir/testfile.txt
 '''
       }
     }
@@ -27,7 +27,6 @@ cat ${PWD}/allure-reports/containerdir/testfile.txt
   post {
     always {
       sh 'echo $(ls)'
-      sh 'echo $(ls allure-reports)'
       archiveArtifacts(artifacts: 'tests/*.py', allowEmptyArchive: true, fingerprint: true)
     }
 
