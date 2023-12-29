@@ -31,6 +31,7 @@ docker rm my-container'''
     always {
       sh 'echo $(ls)'
       archiveArtifacts(artifacts: 'report.html, allure-reports/**', allowEmptyArchive: true, fingerprint: true)
+      allure(includeProperties: false, jdk: '', results: [[path: 'allure-reports']])
     }
 
   }
