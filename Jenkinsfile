@@ -15,7 +15,9 @@ pipeline {
 echo "Building docker container..."
 docker build -t tests -f docker/Dockerfile.tests .
 '''
-        sh '''docker run --name my-container -d tests tail -f /dev/null
+        sh '''docker stop my-container || true
+docker rm my-container || true
+docker run --name my-container -d tests tail -f /dev/null
 docker exec my-container bash -c "pytest --html=report.html --alluredir=allure-reports; ls"
 docker cp my-container:/usr/src/app/report.html .
 docker cp my-container:/usr/src/app/allure-reports .
