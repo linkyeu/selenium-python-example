@@ -5,10 +5,10 @@ from selenium import webdriver
 @pytest.fixture()
 def setup_driver(request):
     url = request.param
-    option = webdriver.ChromeOptions()
+    option = webdriver.FirefoxOptions()
     option.add_argument("--headless=new")
     option.add_argument("--disable-gpu")
-    driver = webdriver.Chrome(options=option)
+    driver = webdriver.Firefox(options=option)
     driver.get(url)
     driver.maximize_window()
     yield driver
