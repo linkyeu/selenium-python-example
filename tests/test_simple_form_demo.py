@@ -1,10 +1,11 @@
 import pytest
-from selenium import webdriver
 
 from pages.selenium_playground import SeleniumPlayground
-from utilities.test_data import TestData
 
 
+@pytest.mark.parametrize(
+    "setup_driver", ["https://www.lambdatest.com/selenium-playground"], True,
+)
 def test_simple_form_demo(setup_driver):
     driver = setup_driver
     playground_page = SeleniumPlayground(driver)
