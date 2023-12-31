@@ -1,4 +1,5 @@
 import pytest
+import allure
 
 from pages.login_page import LoginPage
 from utilities.test_data import TestData
@@ -6,6 +7,7 @@ from utilities.test_data import TestData
 
 class TestLogin:
 
+    @allure.epic("TestLogin: ID0001")
     @pytest.mark.parametrize(
         "setup_driver", ["https://ecommerce-playground.lambdatest.io/index.php?route=account/login"], True,
     )
@@ -17,6 +19,7 @@ class TestLogin:
         actual_title = login_page.get_title()
         assert actual_title == "My Account"
 
+    @allure.epic("TestLogin: ID0002")
     @pytest.mark.parametrize(
         "setup_driver", ["https://ecommerce-playground.lambdatest.io/index.php?route=account/login"], True,
     )
