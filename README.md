@@ -29,10 +29,10 @@ The following websites are chosen for practice:
 
 Main pipeline assumes to write functional 2t2 tests for web app
 using Python and Selenium WebDriver. Run tests in docker 
-container on Jenkins with PyTest as a test runner (test execution layer) on different
-browsers. Tests should be logged. Generate html report and present results in Allure. 
-Test run reports should be collected in database and then 
-visualized with Grafana.
+container on Jenkins with PyTest as a test runner (test execution layer) 
+on different browsers. Report should be shown via Allure. 
+Test run reports should be collected in database and then visualized with Grafana.
+Main purpose is to pass end to end pipeline for continuous testing process.
 
 ### Key skills:
 Python, PyTest, Docker, Docker Compose, Allure, Selenium, Grafana, Jenkins.
