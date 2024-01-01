@@ -44,8 +44,9 @@ Source: https://www.youtube.com/watch?v=vmJv7nFm4yA
 ### Design Pattern used:
 - DomainDrivenDesign: Express your tests in the language of the end-user of the app. 
 - PageObjects: A simple abstraction of the UI of your web app. 
-- Lo`adableComponent: Modeling PageObjects as components. 
-- BotStyleTests: Using a command-based approach to automating tests, rather than the object-based approach that PageObjects encourage
+- LoadableComponent: Modeling PageObjects as components. 
+- BotStyleTests: Using a command-based approach to automating tests, rather 
+than the object-based approach that PageObjects encourage
 
 
 Source: https://www.selenium.dev/documentation/test_practices/design_strategies/
@@ -59,7 +60,16 @@ docker run -u root -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home
 should be root user to have an access to docker socket!
 - Run Jenkins and setup (Docker Pipeline plugin)
 
-    
+#### TODO
+- [ ] Static analysis of codebase
+- [ ] Run tests using Selenoid instead of Selenium Grid
+- [ ] Run test cases on Windows, MacOS, Linux
+- [ ] Run test cases on different browser versions (Edge, Chrome, Firefox) 
+three from the latest versions for each
+- [ ] Run tests in parallel
+- [ ] Write two more test cases
+- [ ] Optional: Add Grafana
+
     
     Test Scenario 2:
 1. Open the https://www.lambdatest.com/selenium-playground page and
