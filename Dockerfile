@@ -15,6 +15,6 @@ RUN wget https://repo1.maven.org/maven2/io/qameta/allure/allure-commandline/2.13
     rm -f /tmp/allure.zip
 
 ENV PATH="/opt/allure-2.13.8/bin:${PATH}"
-COPY . .
+COPY docker .
 RUN pip install -r requirements.txt
 CMD ["bash"]
