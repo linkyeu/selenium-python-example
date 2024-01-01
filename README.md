@@ -14,26 +14,25 @@
 
 ## Goals
 QA Engineering practice:
-- Tests shall be developed with Selenium WebDriver
-- PyTest shall be used as test runner
-- Docker shall be used as env isolation tool
-- Jenkins shall be used as CI/CD tool
-- Allure shall be used as reporting tool
-- Selenoid, Kubernetes shall be used to run tests on different envs
-- Static code analysis shall be taken on testing code base
-- Tests code base shall be shall run in parallel
-- Tests shall be developed following best practices
-- - DomainDrivenDesign: Express your tests in the language of the end-user of the app. 
-- - PageObjects: A simple abstraction of the UI of your web app. 
-- - LoadableComponent: Modeling PageObjects as components. 
-- - BotStyleTests: Using a command-based approach to automating tests, rather than the object-based approach that PageObjects encourage
+- [ ] Tests shall be developed with Selenium WebDriver
+- [ ] PyTest shall be used as test runner
+- [ ] Docker shall be used as env isolation tool
+- [ ] Jenkins shall be used as CI/CD tool
+- [ ] Allure shall be used as reporting tool
+- [ ] Selenoid, Kubernetes shall be used to run tests on different envs
+- [ ] Static code analysis shall be taken on testing code base
+- [ ] Tests code base shall be shall run in parallel
+- [ ] Tests shall be developed following best practices
+- - [ ] DomainDrivenDesign: Express your tests in the language of the end-user of the app. 
+- - [ ] PageObjects: A simple abstraction of the UI of your web app. 
+- - [ ] LoadableComponent: Modeling PageObjects as components. 
+- - [ ] BotStyleTests: Using a command-based approach to automating tests, rather than the object-based approach that PageObjects encourage
 Source: https://www.selenium.dev/documentation/test_practices/design_strategies/
-- Tests shall run on Windows 10 and Linux (Ubuntu LTS)
-- Tests shall run of Edge, Firefox, Chrome (three latest versions)
-- Tests technics shall be applied to decrease number of combinations
-- Tests shall run in parallel
-- The following website shall be used as playground: https://ecommerce-playground.lambdatest.io/
-- 
+- [ ] Tests shall run on Windows 10 and Linux (Ubuntu LTS)
+- [ ] Tests shall run of Edge, Firefox, Chrome (three latest versions)
+- [ ] Tests technics shall be applied to decrease number of combinations
+- [ ] Tests shall run in parallel
+- [ ] The following website shall be used as playground: https://ecommerce-playground.lambdatest.io/
 
 ### ToBeAutomated
     Test Scenario 2:
@@ -56,4 +55,4 @@ property.
 us, we will get back to you shortly.” on the screen.
 
 ## Key skills:
-Python, OOP, Patterns, PyTest, Docker, Allure, Selenium, Selenoid, Jenkins, (Grafana).
+Python, OOP, Patterns, PyTest, Docker, Allure, Selenium, Selenoid, Kubernetes, Jenkins, (Grafana).
