@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
-from pages.drag_and_drop_page import DragAndDropPage
 from pages.simple_form_demo_page import SimpleFormDemoPage
 
 
