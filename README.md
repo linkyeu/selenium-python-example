@@ -19,7 +19,7 @@ QA Engineering practice:
 - [ ] Docker shall be used as env isolation tool
 - [ ] Jenkins shall be used as CI/CD tool
 - [ ] Allure shall be used as reporting tool
-- [ ] Selenoid, Kubernetes shall be used to run tests on different envs
+- [ ] Selenium Grid, Kubernetes shall be used to run tests on different envs
 - [ ] Static code analysis shall be taken on testing code base
 - [ ] Tests code base shall be shall run in parallel
 - [ ] Tests shall be developed following best practices
@@ -55,4 +55,4 @@ property.
 us, we will get back to you shortly.” on the screen.
 
 ## Key skills:
-Python, OOP, Patterns, PyTest, Docker, Allure, Selenium, Selenoid, Kubernetes, Jenkins, (Grafana).
+Python, OOP, Patterns, PyTest, Docker, Allure, Selenium, Selenium Grid, Kubernetes, Jenkins, (Grafana).
