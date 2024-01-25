@@ -16,3 +16,7 @@ class SeleniumPlayground(BasePage):
     def open_simple_form_demo(self):
         self.open_section("Simple Form Demo")
         return SimpleFormDemoPage(self.driver)
+
+    # def open_drag_and_drop(self):
+    #     self.open_section("Drag & Drop Sliders")
+    #     return DragAndDropPage(self.driver)

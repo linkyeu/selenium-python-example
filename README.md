@@ -1,66 +1,40 @@
 # Selenium project
 ```
 /
-│
+├── pages/                       # Page Object Models for web pages
 ├── tests/                       # Directory for Selenium test scripts
-│   ├── pages/                   # Page Object Models for web pages
-│   └── test_cases/              # Selenium test cases
-│
-├── reports/                     # Directory for storing Allure reports
-├── docker/                      # Docker configurations and files
-│   ├── Dockerfile               # Dockerfile for setting up the test environment
-│   └── docker-compose.yml       # Docker Compose to orchestrate containers
-│
-├── grafana/                     # Grafana dashboard configurations
-│   └── dashboards/              # JSON files for Grafana dashboards
-│
-├── utils/                       # Utility scripts and helper functions
-├── requirements.txt             # Python dependencies for the project
+├── utilities/                   # Utility scripts and helper functions
+├── conftest.py                  # PyTest fixtures
+├── Dockerfile                   # Dockerfile for setting up the test environment│
+├── Jenkinsfile                  # Jenkins Declarative pipeline
 ├── pytest.ini                   # Configuration file for PyTest
-├── .allure/                     # Allure configuration files (if needed)
-├── .gitignore                   # Standard Git ignore file
-└── README.md                    # Project documentation
+├── README.md                    # Project documentation
+└── requirements.txt             # Python dependencies for the project
 ```
-This project is about practicing Selenium and other technologies
-like Docker, Allure, PyTest.
 
-The following websites are chosen for practice:
-- https://ecommerce-playground.lambdatest.io/
-
-Main pipeline assumes to write functional 2t2 tests for web app
-using Python and Selenium WebDriver. Run tests in docker 
-container on Jenkins with PyTest as a test runner (test execution layer) on different
-browsers. Tests should be logged. Generate html report and present results in Allure. 
-Test run reports should be collected in database and then 
-visualized with Grafana.
-
-### Key skills:
-Python, PyTest, Docker, Docker Compose, Allure, Selenium, Grafana, Jenkins.
-
-__Note:__ Do not run Selenium Grid to run tests on different OS, browsers etc.
-At least us Selenoid.
-Source: https://www.youtube.com/watch?v=vmJv7nFm4yA
-    
-### Design Pattern used:
-- DomainDrivenDesign: Express your tests in the language of the end-user of the app. 
-- PageObjects: A simple abstraction of the UI of your web app. 
-- Lo`adableComponent: Modeling PageObjects as components. 
-- BotStyleTests: Using a command-based approach to automating tests, rather than the object-based approach that PageObjects encourage
-
-
+## Goals
+QA Engineering practice:
+- [ ] Tests shall be developed with Selenium WebDriver
+- [ ] PyTest shall be used as test runner
+- [ ] Docker shall be used as env isolation tool
+- [ ] Jenkins shall be used as CI/CD tool
+- [ ] Allure shall be used as reporting tool
+- [ ] Selenium Grid, Kubernetes shall be used to run tests on different envs
+- [ ] Static code analysis shall be taken on testing code base
+- [ ] Tests code base shall be shall run in parallel
+- [ ] Tests shall be developed following best practices
+- - [ ] DomainDrivenDesign: Express your tests in the language of the end-user of the app. 
+- - [ ] PageObjects: A simple abstraction of the UI of your web app. 
+- - [ ] LoadableComponent: Modeling PageObjects as components. 
+- - [ ] BotStyleTests: Using a command-based approach to automating tests, rather than the object-based approach that PageObjects encourage
 Source: https://www.selenium.dev/documentation/test_practices/design_strategies/
+- [ ] Tests shall run on Windows 10 and Linux (Ubuntu LTS)
+- [ ] Tests shall run of Edge, Firefox, Chrome (three latest versions)
+- [ ] Tests technics shall be applied to decrease number of combinations
+- [ ] Tests shall run in parallel
+- [ ] The following website shall be used as playground: https://ecommerce-playground.lambdatest.io/
 
-## Settings
-### Setup Jenkins
-- Write dockerfile with default Jenkins and add there docker
-- Build
-- Run container with mounted docker socket with host socket
-docker run -u root -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkins-docker
-should be root user to have an access to docker socket!
-- Run Jenkins and setup (Docker Pipeline plugin)
-
-    
-    
+### ToBeAutomated
     Test Scenario 2:
 1. Open the https://www.lambdatest.com/selenium-playground page and
 click “Drag & Drop Sliders” under “Progress Bars & Sliders”.
@@ -80,13 +54,12 @@ property.
 7. Once submitted, validate the success message “Thanks for contacting
 us, we will get back to you shortly.” on the screen.
 
-You are required to run the above test in parallel on at least 2 different
-browser/OS combinations (for example,
-Windows 10 Chrome latest version and macOS Catalina Safari)
+## Key skills:
+Python, OOP, Patterns, PyTest, Docker, Allure, Selenium, Selenium Grid, Kubernetes, Jenkins, (Grafana).
 
 
-
-
-
-
-
+- V Install Selenium Grid from bash script
+- V Run server in second mode 
+- Run node on local machine
+- Run node on Mac
+- Run tests 

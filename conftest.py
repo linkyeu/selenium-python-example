@@ -1,36 +1,42 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 
-from utilities.test_data import TestData
 
+@pytest.fixture()
+def setup_driver(request):
+    moon_url = "http://localhost:4444/wd/hub"
+    url, browser, version, os = request.param
+    assert os in ["linux", "mac", "windows"]
+    assert browser in ["firefox", "edge", "safari", "chrome"]
+    # if version is None:
+    #     version = "latest"
 
-@pytest.fixture()  # params=["chrome", "firefox", "edge"]
-def setup_driver():
-    option = webdriver.ChromeOptions()
-    option.add_argument("--headless=new")
-    option.add_argument("--disable-gpu")
-    driver = webdriver.Chrome(options=option)
-    #
-    # if request.param == "chrome":
-    #     option = webdriver.ChromeOptions()
-    #     option.add_argument("--headless=new")
-    #     option.add_argument("--disable-gpu")
-    #     driver = webdriver.Chrome(options=option)
-    #
-    # elif request.param == "firefox":
-    #     option = webdriver.FirefoxOptions()
-    #     option.add_argument("--headless")
-    #     option.add_argument("--disable-gpu")
-    #     driver = webdriver.Firefox(options=option)
-    #
-    # elif request.param == "edge":
-    #     option = webdriver.FirefoxOptions()
-    #     option.add_argument("--headless")
-    #     option.add_argument("--disable-gpu")
-    #     driver = webdriver.Edge(options=option)
+    match browser:
+        case "firefox":
+            options = webdriver.FirefoxOptions()
+            headless = "--headless"
+        case "edge":
+            options = webdriver.EdgeOptions()
+            headless = "--headless=new"
+        case "chrome":
+            options = webdriver.ChromeOptions()
+            headless = "--headless=new"
+        case _:
+            options = webdriver.ChromeOptions()
+            headless = "--headless=new"
 
-    driver.get("https://www.lambdatest.com/selenium-playground")
+    options.add_argument("--no-sandbox")
+    options.add_argument(headless)
+    options.add_argument("--disable-gpu")
+    options.add_argument("--disable-dev-shm-usage")
+    options.set_capability("browserName", browser)
+    # options.set_capability("version", version)
+    options.set_capability("platformName", os)
+
+    driver = webdriver.Remote(command_executor=moon_url, options=options)
+    driver.get(url)
     driver.maximize_window()
     yield driver
     driver.quit()
