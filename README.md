@@ -56,3 +56,10 @@ us, we will get back to you shortly.” on the screen.
 
 ## Key skills:
 Python, OOP, Patterns, PyTest, Docker, Allure, Selenium, Selenium Grid, Kubernetes, Jenkins, (Grafana).
+
+
+- V Install Selenium Grid from bash script
+- V Run server in second mode 
+- Run node on local machine
+- Run node on Mac
+- Run tests 

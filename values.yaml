@@ -1,0 +1,36 @@
+moon:
+  # Количество одновременно работающих браузеров
+  sessions: 10
+
+  # Определение браузеров и их версий
+  browsers:
+    firefox:
+      default: "88.0"
+      versions:
+        "88.0":
+          image: "selenoid/firefox:88.0"
+
+#    chrome:
+#      default: "90.0"
+#      versions:
+#        "90.0":
+#          image: "selenoid/chrome:90.0"
+
+  # Настройки для различных тестовых сред
+  environments:
+    - name: "ubuntu18-firefox"
+      browser: "firefox"
+      version: "88.0"
+      screenResolution: "1920x1080x24"
+      # Дополнительные настройки, если нужны
+
+    - name: "ubuntu22-firefox"
+      browser: "firefox"
+      version: "88.0"
+      screenResolution: "1920x1080x24"
+      # Дополнительные настройки, если нужны
+
+# Настройки сервиса
+service:
+  type: ClusterIP
+  externalPort: 4444
